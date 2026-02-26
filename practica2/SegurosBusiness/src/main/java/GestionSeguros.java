@@ -20,44 +20,58 @@ public class GestionSeguros implements IGestionSeguros, IGestionClientes, IInfoS
 		if (seguros.seguro(s.getId()).getMatricula().equals(s.getMatricula())) {
 			throw new OperacionNoValida("Ya existe el seguro");
 		}
-		
-		return null;
+		c.getSeguros().add(s);
+		return seguros.creaSeguro(s);
 	}
 
 	@Override
 	public Seguro bajaSeguro(String matricula, String dni) throws OperacionNoValida, DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		Cliente c = clientes.cliente(dni);
+		if (c == null) {
+			throw new OperacionNoValida("No existe el cliente");
+		}
+		Seguro s = seguros.seguroPorMatricula(matricula);
+		if (!seguros.seguro(s.getId()).getMatricula().equals(s.getMatricula())) {
+			throw new OperacionNoValida("No existe el seguro");
+		}
+		return seguros.eliminaSeguro(s.getId());
 	}
 
 	@Override
 	public Seguro anhadeConductorAdicional(String matricula, String conductor) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		Seguro s = seguros.seguroPorMatricula(matricula);
+		if (s == null) {
+			return s;
+		}
+		s.setConductorAdicional(conductor);
+		return seguros.actualizaSeguro(s);
 	}
 
 	@Override
 	public Cliente cliente(String dni) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return clientes.cliente(dni);
 	}
 
 	@Override
 	public Seguro seguro(String matricula) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return seguros.seguroPorMatricula(matricula);
 	}
 
 	@Override
 	public Cliente nuevoCliente(Cliente c) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return clientes.creaCliente(c);
 	}
 
 	@Override
 	public Cliente bajaCliente(String dni) throws OperacionNoValida, DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		if (clientes.cliente(dni) == null) {
+			throw new OperacionNoValida("No existia el cliente");
+		}
+		Cliente c = clientes.cliente(dni);
+		if (!c.getSeguros().isEmpty()) {
+			throw new OperacionNoValida("El cliente aun tiene seguros");
+		}
+		return clientes.eliminaCliente(dni);
 	}
 
 }
