@@ -34,7 +34,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>es.unican.is2.Runner</mainClass>
+                            <mainClass>Runner</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
