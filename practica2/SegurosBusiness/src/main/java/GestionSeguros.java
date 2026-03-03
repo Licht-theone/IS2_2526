@@ -1,11 +1,14 @@
 
 
-
 public class GestionSeguros implements IGestionSeguros, IGestionClientes, IInfoSeguros {
 	private ISegurosDAO seguros;
 	private IClientesDAO clientes;
 	
-
+	/**
+	 * Constructor gestion seguros
+	 * @param daoClientes interfaz de la dao de clientes
+	 * @param daoSeguros interfaz de la dao de seguros
+	 */
 	public GestionSeguros(IClientesDAO daoClientes, ISegurosDAO daoSeguros) {
 		clientes = daoClientes;
 		seguros = daoSeguros;
