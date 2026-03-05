@@ -1,9 +1,5 @@
 
 
-import java.util.zip.DataFormatException;
-
-
-
 /**
  * Interfaz de negocio para gestionar los
  * seguros de la empresa de seguros
