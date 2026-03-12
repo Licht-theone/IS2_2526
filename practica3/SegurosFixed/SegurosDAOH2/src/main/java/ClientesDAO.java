@@ -26,7 +26,7 @@ public class ClientesDAO implements IClientesDAO {
 	public Cliente cliente(String dni) throws DataAccessException {
 		Cliente result = null; 
 		Connection con = H2ServerConnectionManager.getConnection();
-		try (Statement statement = con.createStatement();) {
+		try (Statement statement = con.createStatement()) {
 			String statementText = "select * from Clientes where dni = '"+ dni+"'";
 			ResultSet results = statement.executeQuery(statementText);
 			if (results.next()) { 
@@ -79,7 +79,7 @@ public class ClientesDAO implements IClientesDAO {
 	public List<Cliente> clientes() throws DataAccessException {
 		List<Cliente> clientes = new LinkedList<Cliente>();
 		Connection con = H2ServerConnectionManager.getConnection(); 
-		try (Statement statement = con.createStatement();) { 
+		try (Statement statement = con.createStatement()) { 
 			String statementText = "select * from Clientes"; 
 			ResultSet results = statement.executeQuery(statementText); 
 			// Procesamos cada fila como vehiculo independiente
@@ -98,7 +98,7 @@ public class ClientesDAO implements IClientesDAO {
 	private Cliente procesaCliente(Connection con, ResultSet results) throws SQLException, DataAccessException {
 		Cliente result = ClienteMapper.toCliente(results);
 		// Cargamos los seguros del cliente
-		try (Statement statement = con.createStatement();) {
+		try (Statement statement = con.createStatement()) {
 			String statementText = String.format("select * from Seguros where cliente_FK = '%s'", result.getDni());
 			results = statement.executeQuery(statementText);
 			while (results.next()) {
