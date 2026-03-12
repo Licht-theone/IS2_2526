@@ -103,9 +103,4 @@ public class SegurosDAO implements ISegurosDAO {
 		}
 		return result;
 	}
-	
-	
-
-	
-
 }
