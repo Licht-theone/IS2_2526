@@ -85,7 +85,6 @@ public class ClientesDAO implements IClientesDAO {
 			}
 			statement.close(); 
 		} catch (SQLException e) {
-			// System.out.println(e);
 			throw new DataAccessException();
 		}
 
