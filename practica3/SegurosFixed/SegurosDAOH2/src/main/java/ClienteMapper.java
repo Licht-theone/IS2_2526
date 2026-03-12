@@ -8,7 +8,11 @@ import java.sql.SQLException;
  * instancias de Cliente
  */
 public class ClienteMapper {
-
+	
+	private ClienteMapper() {
+		throw new IllegalStateException("Clase de utilidad");
+	}
+	
 	/**
 	 * Recibe una fila de la BBDD correspondinete a un Cliente 
 	 * y devuelve un objeto Cliente con los datos correspondientes
