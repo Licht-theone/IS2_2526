@@ -1,0 +1,6 @@
+projectKey=es.unican.is2:SegurosFixed
+serverUrl=http://localhost:9000
+serverVersion=26.3.0.120487
+dashboardUrl=http://localhost:9000/dashboard?id=es.unican.is2%3ASegurosFixed
+ceTaskId=5d83b950-2814-4d31-aa41-6ff9a6933430
+ceTaskUrl=http://localhost:9000/api/ce/task?id=5d83b950-2814-4d31-aa41-6ff9a6933430
