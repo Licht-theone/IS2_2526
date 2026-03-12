@@ -47,8 +47,6 @@ public class ClientesDAO implements IClientesDAO {
 		Cliente old = cliente(nuevo.getDni());
 		String statementText;
 
-		Connection con = H2ServerConnectionManager.getConnection();
-
 		statementText = String.format(
 				"update Clientes set nombre = '%s', minusvalia = '%b' where dni = '%s'", 
 				nuevo.getNombre(), nuevo.getMinusvalia(), nuevo.getDni());
