@@ -1,3 +1,4 @@
+package es.unican.is2;
 
 
 import java.sql.ResultSet;
@@ -26,7 +27,7 @@ public class SeguroMapper {
 			Cobertura cobertura = Cobertura.valueOf(results.getString("cobertura"));
 			int potencia = Integer.valueOf(results.getString("potencia"));
 			String conductorAdicional = results.getString("conductorAdicional");
-			seg = new Seguro();
+			seg = new Seguro(id, matricula, potencia, cobertura, fecha, conductorAdicional);
 			seg.setMatricula(matricula);
 			seg.setCobertura(cobertura);	
 			seg.setPotencia(potencia);

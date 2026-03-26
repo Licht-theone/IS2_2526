@@ -1,3 +1,4 @@
+package es.unican.is2;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -23,7 +24,7 @@ public class ClienteMapper {
 			String dni = results.getString("dni");
 			String nombre = results.getString("nombre");
 			boolean minusvalia = results.getBoolean("minusvalia");
-			cont = new Cliente();
+			cont = new Cliente(dni, nombre, minusvalia);
 			cont.setDni(dni);
 			cont.setNombre(nombre);	
 			cont.setMinusvalia(minusvalia);

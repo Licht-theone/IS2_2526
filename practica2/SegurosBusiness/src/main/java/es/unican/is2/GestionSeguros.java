@@ -1,4 +1,13 @@
-
+package es.unican.is2;
+import es.unican.is2.Cliente;
+import es.unican.is2.DataAccessException;
+import es.unican.is2.IClientesDAO;
+import es.unican.is2.IGestionClientes;
+import es.unican.is2.IGestionSeguros;
+import es.unican.is2.IInfoSeguros;
+import es.unican.is2.ISegurosDAO;
+import es.unican.is2.OperacionNoValida;
+import es.unican.is2.Seguro;
 
 public class GestionSeguros implements IGestionSeguros, IGestionClientes, IInfoSeguros {
 	private ISegurosDAO seguros;
@@ -18,7 +27,7 @@ public class GestionSeguros implements IGestionSeguros, IGestionClientes, IInfoS
 	public Seguro nuevoSeguro(Seguro s, String dni) throws OperacionNoValida, DataAccessException {
 		Cliente c = clientes.cliente(dni);
 		if (c == null) {
-			throw new OperacionNoValida("No existe el cliente");
+			return null;
 		}
 		if (seguros.seguro(s.getId()).getMatricula().equals(s.getMatricula())) {
 			throw new OperacionNoValida("Ya existe el seguro");
@@ -31,11 +40,14 @@ public class GestionSeguros implements IGestionSeguros, IGestionClientes, IInfoS
 	public Seguro bajaSeguro(String matricula, String dni) throws OperacionNoValida, DataAccessException {
 		Cliente c = clientes.cliente(dni);
 		if (c == null) {
-			throw new OperacionNoValida("No existe el cliente");
+			return null;
 		}
 		Seguro s = seguros.seguroPorMatricula(matricula);
-		if (!seguros.seguro(s.getId()).getMatricula().equals(s.getMatricula())) {
-			throw new OperacionNoValida("No existe el seguro");
+		if (s == null) {
+			return null;
+		}
+		if (!c.getSeguros().contains(s)) {
+			throw new OperacionNoValida("El seguro no es del cliente especificado");
 		}
 		return seguros.eliminaSeguro(s.getId());
 	}
@@ -68,7 +80,7 @@ public class GestionSeguros implements IGestionSeguros, IGestionClientes, IInfoS
 	@Override
 	public Cliente bajaCliente(String dni) throws OperacionNoValida, DataAccessException {
 		if (clientes.cliente(dni) == null) {
-			throw new OperacionNoValida("No existia el cliente");
+			return null;
 		}
 		Cliente c = clientes.cliente(dni);
 		if (!c.getSeguros().isEmpty()) {

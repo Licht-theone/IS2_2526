@@ -1,6 +1,8 @@
+package es.unican.is2;
 
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * Clase que representa un seguro de coche.
@@ -18,6 +20,16 @@ public class Seguro {
     private LocalDate fechaInicio;
 
 	private String conductorAdicional;
+	
+	public Seguro(long id, String matricula, int potencia, Cobertura cobertura, LocalDate fechaInicio, String conductorAdicional) {
+		super();
+		this.id = id;
+		this.matricula = matricula;
+		this.potencia = potencia;
+		this.cobertura = cobertura;
+		this.fechaInicio = fechaInicio;
+		this.conductorAdicional = conductorAdicional;
+	}
 
 	/**
 	 * Retorna el identificador del seguro
@@ -143,6 +155,25 @@ public class Seguro {
 			precio = precio*0.8;
 		}
 		return precio;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cobertura, conductorAdicional, fechaInicio, id, matricula, potencia);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Seguro other = (Seguro) obj;
+		return cobertura == other.cobertura && Objects.equals(conductorAdicional, other.conductorAdicional)
+				&& Objects.equals(fechaInicio, other.fechaInicio) && id == other.id
+				&& Objects.equals(matricula, other.matricula) && potencia == other.potencia;
 	}
 	
 }

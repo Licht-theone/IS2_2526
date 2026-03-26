@@ -1,5 +1,7 @@
+package es.unican.is2;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Clase que representa un cliente de la empresa de seguros
@@ -15,6 +17,13 @@ public class Cliente {
 
     private List<Seguro> seguros = new LinkedList<Seguro>();
     
+	public Cliente(String dni, String nombre, boolean minusvalia) {
+		super();
+		this.dni = dni;
+		this.nombre = nombre;
+		this.minusvalia = minusvalia;
+	}
+
 	/**
      * Retorna los seguros del cliente 
      */
@@ -88,4 +97,23 @@ public class Cliente {
         return total;
     }
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(dni, minusvalia, nombre, seguros);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		return Objects.equals(dni, other.dni) && minusvalia == other.minusvalia && Objects.equals(nombre, other.nombre)
+				&& Objects.equals(seguros, other.seguros);
+	}
+    
+    
 }
