@@ -119,6 +119,9 @@ public class Seguro {
 		if (fechaInicio.isAfter(LocalDate.now())) {
 			return 0;
 		}
+		if (cobertura == null) {
+			return 0;
+		}
 		double precio = 0;
 		if (cobertura == Cobertura.TODO_RIESGO) {
 			precio = 1000;
@@ -126,8 +129,6 @@ public class Seguro {
 			precio = 600;
 		} else if (cobertura == Cobertura.TERCEROS) {
 			precio = 400;
-		} else {
-			return 0;
 		}
 		//aumentos por potencia
 		if (potencia >= 90 && potencia <= 110) {

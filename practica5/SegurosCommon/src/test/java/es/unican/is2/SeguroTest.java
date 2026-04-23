@@ -73,6 +73,14 @@ public class SeguroTest {
 	}
 	
 	@Test
+	public void testPrecioSinCobertura() {
+		//test adicional para un 100% de cobertura
+		Seguro s = new Seguro();
+		s.setFechaInicio(LocalDate.now().minusMonths(1));
+		assertEquals(0, s.precio(), 0.01);
+	}
+	
+	@Test
 	public void testPrecioPotenciaMenorA90() {
 		// CE9: Coche con menos de 90 CV
 		Seguro s = new Seguro();
