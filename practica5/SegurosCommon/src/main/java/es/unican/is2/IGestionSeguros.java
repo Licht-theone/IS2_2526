@@ -1,4 +1,4 @@
-
+package es.unican.is2;
 
 /**
  * Interfaz de negocio para gestionar los

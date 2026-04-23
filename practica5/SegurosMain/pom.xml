@@ -5,9 +5,9 @@
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
   	<dependency>
-  		<groupId>es.unican.is2</groupId>
-  		<artifactId>SegurosGUI</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
+  	<groupId>es.unican.is2</groupId>
+  	<artifactId>SegurosGUI</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   	<dependency>
   	<groupId>es.unican.is2</groupId>
@@ -24,6 +24,12 @@
   	<artifactId>SegurosCommon</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter</artifactId>
+    <version>5.9.2</version>
+    <scope>test</scope>
+	</dependency>
   </dependencies>
   <build>
         <plugins>

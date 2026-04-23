@@ -1,4 +1,4 @@
-
+package es.unican.is2;
 
 import java.time.LocalDate;
 
@@ -116,7 +116,7 @@ public class Seguro {
 	 *         0 si el seguro todavía no está en vigor (no se ha alcanzado su fecha de inicio)
      */
 	public double precio() {
-		if (fechaInicio.isBefore(LocalDate.now())) {
+		if (fechaInicio.isAfter(LocalDate.now())) {
 			return 0;
 		}
 		double precio = 0;
@@ -129,17 +129,15 @@ public class Seguro {
 		} else {
 			return 0;
 		}
-		//descuentos por potencia
+		//aumentos por potencia
 		if (potencia >= 90 && potencia <= 110) {
 			precio = precio * 1.05;
 		} else if (potencia > 110) {
 			precio = precio * 1.2;
-		} else {
-			return 0;
 		}
 		
 		//oferta
-		if (!fechaInicio.plusYears(1).isAfter(LocalDate.now())) {
+		if (fechaInicio.plusYears(1).isAfter(LocalDate.now())) {
 			precio = precio*0.8;
 		}
 		return precio;
