@@ -74,7 +74,7 @@ public class SeguroTest {
 	
 	@Test
 	public void testPrecioSinCobertura() {
-		//test adicional para un 100% de cobertura
+		//CE8: cobertura nula
 		Seguro s = new Seguro();
 		s.setFechaInicio(LocalDate.now().minusMonths(1));
 		assertEquals(0, s.precio(), 0.01);
@@ -89,5 +89,15 @@ public class SeguroTest {
 		s.setFechaInicio(LocalDate.now().minusYears(2)); //sin descuento por antigüedad
 		//debe devolver 400, sin incremento por potencia ni descuento por antigüedad
 		assertEquals(400.0, s.precio(), 0.01);
+	}
+	
+	@Test
+	public void testPrecioCaballosMenorIgualA0() {
+		// CE9: Coche con menos de 90 CV, pero un valor no valido
+		Seguro s = new Seguro();
+		s.setCobertura(Cobertura.TERCEROS);
+		s.setPotencia(-1);
+		s.setFechaInicio(LocalDate.now().minusYears(2));
+		assertEquals(0, s.precio(), 0.01);
 	}
 }

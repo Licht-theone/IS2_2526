@@ -135,6 +135,8 @@ public class Seguro {
 			precio = precio * 1.05;
 		} else if (potencia > 110) {
 			precio = precio * 1.2;
+		} else if (potencia <= 0) {
+			return 0;
 		}
 		
 		//oferta
