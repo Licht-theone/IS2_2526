@@ -46,7 +46,8 @@ public class H2ServerConnectionManager {
 	 */
 	public static void cargaDatos() throws DataAccessException {
 		// Creacion programatica de la BBDD
-		try (Connection con = getConnection(); Statement stm = con.createStatement()) {
+		Connection con = getConnection();
+		try (Statement stm = con.createStatement()) {
 			// Creacion de la tabla Clientes
 			String sql= "CREATE TABLE Clientes (dni CHAR(9) NOT NULL, nombre VARCHAR(100) NOT NULL, "
 					+ "minusvalia BOOLEAN NOT NULL, PRIMARY KEY(dni))";
@@ -114,7 +115,8 @@ public class H2ServerConnectionManager {
 	 * @throws DataAccessException si hay un error en la conexion
 	 */
 	public static void executeSqlStatement(String stringStatement) throws DataAccessException {
-		try (Connection con = getConnection(); Statement stm = con.createStatement()) {
+		Connection con = getConnection();
+		try (Statement stm = con.createStatement()) {
 			stm.execute(stringStatement); 
 			stm.close(); 
 		}
