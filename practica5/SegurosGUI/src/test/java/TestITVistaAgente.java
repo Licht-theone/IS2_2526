@@ -5,7 +5,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import es.unican.is2.Cliente;
 import es.unican.is2.ClientesDAO;
+import es.unican.is2.DataAccessException;
 import es.unican.is2.GestionSeguros;
 import es.unican.is2.IClientesDAO;
 import es.unican.is2.ISegurosDAO;
@@ -51,5 +53,30 @@ public class TestITVistaAgente {
 		ventana.textBox("txtNombreCliente").requireText("Juan");
 		ventana.list().requireItemCount(3);
 		ventana.textBox("txtTotalCliente").requireText("1820.0");
+	}
+	
+	@Test
+	public void testFalloBBDD() {
+		ventana.cleanUp();
+		ventana = null;
+		IClientesDAO clientesDAO = new ClientesDAO();
+		ISegurosDAO segurosDAO = new SegurosDAO();
+		//stub que siempre lanza la excepcion
+		GestionSeguros infoRota = new GestionSeguros(clientesDAO, segurosDAO) {
+			@Override
+			public Cliente cliente(String dni) throws DataAccessException {
+				// fuerza la excepción directamente
+				throw new DataAccessException();
+			}
+		};
+		VistaAgente vistaRota = new VistaAgente(infoRota, infoRota, infoRota);
+		FrameFixture ventanaRota = new FrameFixture(vistaRota);
+		ventanaRota.show(new Dimension(450, 341));
+		ventanaRota.textBox("txtDNICliente").enterText("11111111A");
+		ventanaRota.button("btnBuscar").click();
+		ventanaRota.textBox("txtNombreCliente").requireText("Error en BBDD");
+		ventanaRota.list().requireItemCount(0);
+		ventanaRota.textBox("txtTotalCliente").requireEmpty();
+		ventanaRota.cleanUp();
 	}
 }
