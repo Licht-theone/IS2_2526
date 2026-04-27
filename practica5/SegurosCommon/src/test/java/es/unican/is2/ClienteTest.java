@@ -53,7 +53,7 @@ public class ClienteTest {
 	
 	@Test
 	public void testTotalSinSeguros() {
-		// sin seguros
+		// sin seguros	
 		c.setSeguros(null);
 		assertEquals(0.0, c.totalSeguros(), 0.01);
 	}
