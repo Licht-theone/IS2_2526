@@ -37,7 +37,7 @@ public class ClienteTest {
 	
 	@Test
 	public void testTotalSinMinusValía() {
-		// CP2: Cliente sin minusvalía
+		//sin minusvalia
 		c.setMinusvalia(false);
 		//el precio debe ser 400 + 600*1.05 + 1000*1.2=2230
 		assertEquals(2230.0, c.totalSeguros(), 0.01);
@@ -45,7 +45,7 @@ public class ClienteTest {
 	
 	@Test
 	public void testTotalConMinusvalía() {
-		// CP3: Cliente con minusvalía
+		//con minusvalía
 		c.setMinusvalia(true);
 		//el precio va a ser 400*0.75 + (600*1.05)*0.75 + (1000*1.2)*0.75=1672,5
 		assertEquals(1672.5, c.totalSeguros(), 0.01);
@@ -53,7 +53,7 @@ public class ClienteTest {
 	
 	@Test
 	public void testTotalSinSeguros() {
-		// CP1: Sin seguros
+		// sin seguros
 		c.setSeguros(null);
 		assertEquals(0.0, c.totalSeguros(), 0.01);
 	}
