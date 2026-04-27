@@ -1,3 +1,4 @@
+package es.unican.is2;
 import java.awt.Dimension;
 
 import org.assertj.swing.fixture.FrameFixture;
