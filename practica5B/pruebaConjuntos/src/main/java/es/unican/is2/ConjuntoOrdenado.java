@@ -14,13 +14,16 @@ public class ConjuntoOrdenado<E extends Comparable<E>> implements IConjuntoOrden
 	public E get(int indice) {
 		return lista.get(indice);
 	}
-
+	
 	public boolean add(E elemento) {
 		int indice = 0;
 		if (elemento==null)
 			throw new NullPointerException();
+		if (lista.contains(elemento)) {
+			return false;
+		}
 		if (lista.size() != 0) {
-			while (indice < lista.size() && elemento.compareTo(lista.get(indice)) < 0) {
+			while (indice < lista.size() && elemento.compareTo(lista.get(indice)) > 0) {
 				indice++;
 			}
 		}
