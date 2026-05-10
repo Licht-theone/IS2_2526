@@ -8,7 +8,7 @@ public class gestionTransportes {
 	
 	public Conductor buscaConductor(String DNI) {		
 		for(Conductor c: cs) 
-			if (c.dni().equals(DNI))
+			if (c.getDni().equals(DNI))
 				return c;
 		
 		return null;

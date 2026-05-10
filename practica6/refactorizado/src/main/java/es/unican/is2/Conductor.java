@@ -12,7 +12,8 @@ public class Conductor {
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
-	private String dire;
+	private String direccion;
+	private static final int SUELDO_BASE = 700;
 
 	public Conductor(String dni, String nombre, String apellido1,
 			String apellido2, String direccion) {
@@ -23,11 +24,7 @@ public class Conductor {
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
 		this.apellido2 = apellido2;
-		this.dire = direccion;
-	}
-
-	public String dni() {
-		return dni;
+		this.direccion = direccion;
 	}
 
 	public String getDni() {
@@ -42,35 +39,20 @@ public class Conductor {
 		return apellido1;
 	}
 
-	public String apellido2() {
+	public String getApellido2() {
 		return apellido2;
 	}
 
-	public String getDire() {
-		return dire;
+	public String getDireccion() {
+		return direccion;
 	}
 
 	public double sueldo() {
-		double sueldoTransportes = 0;
+		double sueldoTransportes = SUELDO_BASE;
 		for (Transporte t : transportes) {
-			double sueldoExtraTransporte = 0.0;
-			switch (t.categoria()) {
-				case Mercancias:
-					sueldoExtraTransporte = t.ton() * 2;
-					break;
-				case MercanciasPeligrosas:
-					sueldoExtraTransporte = t.ton() * 2 + 50;
-					break;
-				case Personas:
-					if (t.getPersonas() < 10)
-						sueldoExtraTransporte = t.horas() * 0.5;
-					else
-						sueldoExtraTransporte = t.horas();
-					break;
-			}
-			sueldoTransportes += t.horas() * 5 + sueldoExtraTransporte;
+			sueldoTransportes += t.calculaSueldoExtra();
 		}
-		return 700 + sueldoTransportes;
+		return sueldoTransportes;
 	}
 
 	public void anhadeTransporte(Transporte t) {

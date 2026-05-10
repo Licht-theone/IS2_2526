@@ -75,15 +75,15 @@ public class GestionTransportesGUI {
 				if (c!=null) {
 					switch (tipo) {
 						case "P":
-							t = new Transporte(horas,CategoriaTransporte.Personas, personas);
+							t = new TransportePersonas(horas,personas);
 							c.anhadeTransporte(t);
 							break;
 						case "M":
-							t = new Transporte(horas, CategoriaTransporte.Mercancias, toneladas);
+							t = new TransporteMercancias(horas, toneladas);
 							c.anhadeTransporte(t);
 							break;
 						case "MP":
-							t = new Transporte(horas, CategoriaTransporte.MercanciasPeligrosas, toneladas);
+							t = new TransportePeligrosas(horas, toneladas);
 							c.anhadeTransporte(t);
 							break;		
 					}

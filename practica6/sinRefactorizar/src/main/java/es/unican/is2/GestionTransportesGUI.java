@@ -6,10 +6,10 @@ import java.util.List;
 import fundamentos.*;
 
 /**
- * WMC=
- * WMCn=/2
- * CCog=
- * CCogn=/2
+ * WMC=18
+ * WMCn=18/2=9.0
+ * CCog=33
+ * CCogn=33/2=16.5
  * CBO=
  * DIT=0 no hay herencia
  * NOC=0 no herendan de ella
@@ -27,7 +27,7 @@ public class GestionTransportesGUI {
 	 * +4(switch anidado en el case 1)+1(else)
 	 * +3(if anidado case 2)
 	 * +3(for anidado en el case 3)+4(if en este case)+1(else if sin penalizar por anidado)
-	 * +3(if fuera del bucle)+1(else)+3(ultimo for)=
+	 * +3(if fuera del bucle)+1(else)+3(ultimo for)=33
 	 */
 	/**
 	 * Programa principal basado en menu
