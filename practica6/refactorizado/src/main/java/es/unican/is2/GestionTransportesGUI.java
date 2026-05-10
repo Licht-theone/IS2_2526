@@ -5,13 +5,13 @@ import fundamentos.*;
 
 /**
  * Nuevas metricas
- * WMC
- * WMCn
- * CCog
- * CCogn
- * CBO
- * DIT
- * NOC
+ * WMC 22
+ * WMCn 22/6=3.66
+ * CCog 18
+ * CCogn 18/6 = 3
+ * CBO 6 (conductor, transporte, gestion transporte y las 3 hijas de transporte)
+ * DIT 0
+ * NOC 0
  */
 
 /**
@@ -20,7 +20,7 @@ import fundamentos.*;
 public class GestionTransportesGUI {
 
 	//CC 1 + while + 4 case = 6
-	//CCog
+	//CCog +1 por el while +2 por el switch anidado = 3
 	/**
 	 * Programa principal basado en menu
 	 */
@@ -66,7 +66,7 @@ public class GestionTransportesGUI {
 	}
 
 	//CC 1 + for + if + elseif + if + for = 6
-	//CCog
+	//CCog +1 por el for + 2 por el if anidado + 1 por el elseif +1 por el if fuera del bucle y +1 else y +2 for anidado en else = 8 
 	private static void mejorConductorExtracted(GestionTransportes gt) {
 		List<Conductor> resultado = new LinkedList<Conductor>();
 		double maxSueldo = 0.0;
@@ -108,8 +108,8 @@ public class GestionTransportesGUI {
 		}
 	}
 
-	//CC
-	//CCog
+	//CC 1 + if + 3 case = 5
+	//CCog +1 por el if +2 por el switch anidado +1 por el else = 4
 	private static void anhadeTransporteExtracted(GestionTransportes gt) {
 		String dni;
 		Lectura lect;
@@ -149,8 +149,8 @@ public class GestionTransportesGUI {
 		}
 	}
 
-	//CC
-	//CCog
+	//CC 1 + if = 2
+	//CCog 1 del if
 	private static void anhadeConductorExtracted(GestionTransportes gt) {
 		String dni;
 		Lectura lect;
