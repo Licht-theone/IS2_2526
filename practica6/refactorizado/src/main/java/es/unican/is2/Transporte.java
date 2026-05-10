@@ -1,9 +1,24 @@
 package es.unican.is2;
+
+/**
+ * Nuevas metricas
+ * WMC 4
+ * WMCn 4/3 = 1.33
+ * CCog 1
+ * CCogn 1/3 = 0.33
+ * CBO 1 (excepcion)
+ * DIT 0
+ * NOC 3 clases hijas
+ */
+
 /* Clase que representa un transporte realizado por un conductor */
 public abstract class Transporte {
 	private double horas;
 	protected static final int EXTRA_BASICO = 5;
 	
+	
+	//CC 1 + 1 del if=2
+	//CCog 1 por el if
 	/**
 	 * Constructor de la clase Transporte
 	 * @param horas Horas que ha durado el transporte
@@ -19,9 +34,12 @@ public abstract class Transporte {
 		this.horas = horas;
 	}
 	
+	//CC 1
+	//CCog 0
 	public double getHoras() {
 		return horas;
 	}
-	
+	//CC 1 porque cuenta como metodo
+	//CCog 0
 	public abstract double calculaSueldoExtra();
 }

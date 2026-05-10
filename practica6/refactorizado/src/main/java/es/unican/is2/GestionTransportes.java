@@ -2,13 +2,24 @@ package es.unican.is2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class gestionTransportes {
+/**
+ * metricas sin cambios con respecto a la clase original
+ *  WMC=6
+ * WMCn=6/3=2
+ * CCog=4
+ * CCogn=4/3=1.33
+ * CBO=1 solo usa la clase conductor
+ * DIT=0 no hay herencia
+ * NOC=0 no herendan de ella
+ */
+
+public class GestionTransportes {
 
 	private ArrayList<Conductor> cs = new ArrayList<Conductor>();
 	
-	public Conductor buscaConductor(String DNI) {		
+	public Conductor buscaConductor(String dni) {		
 		for(Conductor c: cs) 
-			if (c.getDni().equals(DNI))
+			if (c.getDni().equals(dni))
 				return c;
 		
 		return null;

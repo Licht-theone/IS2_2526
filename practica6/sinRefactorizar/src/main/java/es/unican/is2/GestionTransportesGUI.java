@@ -10,7 +10,7 @@ import fundamentos.*;
  * WMCn=18/2=9.0
  * CCog=33
  * CCogn=33/2=16.5
- * CBO=
+ * CBO= transporte conductor gestion transportes y categoria transportes = 4
  * DIT=0 no hay herencia
  * NOC=0 no herendan de ella
  */
