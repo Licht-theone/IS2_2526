@@ -1,5 +1,14 @@
 package es.unican.is2;
 
+/**
+ * WMC=9
+ * WMCn=9/5=1.8
+ * CCog=3
+ * CBO=2 usa categoriatransporte e illegalargumentexception
+ * DIT=0 no hay herencia
+ * NOC=0 no herendan de ella
+ */
+
 /* Clase que representa un transporte realizado por un conductor */
 public class Transporte {
 	
@@ -8,6 +17,8 @@ public class Transporte {
 	private int personas;
 	private CategoriaTransporte cat;
 	
+	//CC=1+if+or+or+if=5
+	//ccog=+1(if)+1(ORs)+1(if)=3
 	/**
 	 * Constructor de la clase Transporte
 	 * @param horas Horas que ha durado el transporte
@@ -29,18 +40,26 @@ public class Transporte {
 		}
 	}
 	
+	//CC=1
+	//ccog=0
 	public double horas() {
 		return horas;
 	}
 
+	//CC=1
+	//ccog=0
 	public CategoriaTransporte categoria() {
 		return cat;
 	}
 
+	//CC=1
+	//ccog=0
 	public int ton() {
 		return ton;
 	}
 
+	//CC=1
+	//ccog=0
 	public int getPersonas() {
 		return personas;
 	}
