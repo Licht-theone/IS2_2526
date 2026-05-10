@@ -4,6 +4,7 @@ package es.unican.is2;
  * WMC=9
  * WMCn=9/5=1.8
  * CCog=3
+ * CCogn=3/5=0.6
  * CBO=2 usa categoriatransporte e illegalargumentexception
  * DIT=0 no hay herencia
  * NOC=0 no herendan de ella

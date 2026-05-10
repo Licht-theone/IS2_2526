@@ -11,6 +11,7 @@ import java.util.ArrayList;
  *  WMC=5+1+1+1+1+1+1+6+1=18
  *  WMCn=18/9=2
  *  CCog de la clase = 9
+ *  CCogn=9/9=1
  *  CBO= usa la clase transporte,categoriatransporte e illegalargumentexception=3
  *  DIT=0 no hereda ninguna clase
  *  NOC=0 no hay clase que herede de esta
