@@ -20,6 +20,15 @@ import fundamentos.*;
  */
 public class GestionTransportesGUI {
 
+	
+	//cc=1+while+4case+if+if+3case+if+for+if+elseif+if+for=17
+	/**
+	 * ccog=+1(while)+2(switch anidado)+3(if doble anidado en el case 0)+3(if anidado en el case1)+1(else)
+	 * +4(switch anidado en el case 1)+1(else)
+	 * +3(if anidado case 2)
+	 * +3(for anidado en el case 3)+4(if en este case)+1(else if sin penalizar por anidado)
+	 * +3(if fuera del bucle)+1(else)+3(ultimo for)=
+	 */
 	/**
 	 * Programa principal basado en menu
 	 */
@@ -143,6 +152,9 @@ public class GestionTransportesGUI {
 		}
 	}
 
+	
+	//wmc=1
+	//ccog=0
 	/**
 	 * Metodo auxiliar que muestra un ventana de mensaje
 	 * @param titulo titulo de la ventana
