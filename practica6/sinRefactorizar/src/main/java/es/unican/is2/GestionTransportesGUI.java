@@ -6,6 +6,16 @@ import java.util.List;
 import fundamentos.*;
 
 /**
+ * WMC=
+ * WMCn=/2
+ * CCog=
+ * CCogn=/2
+ * CBO=
+ * DIT=0 no hay herencia
+ * NOC=0 no herendan de ella
+ */
+
+/**
  * Gestion de una empresa de transportes
  */
 public class GestionTransportesGUI {
